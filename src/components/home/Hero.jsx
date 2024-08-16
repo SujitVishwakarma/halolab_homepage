@@ -50,39 +50,48 @@ const Hero = () => {
       <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-[65%_35%] gap-8 items-center">
         {/* Left Side */}
         <div
-          className="bg-blue-600 p-8 rounded-lg relative"
+          className="bg-blue-600 p-4 sm:p-8 rounded-lg relative h-auto md:h-[600px] lg:h-[550px] xl:h-[600px] flex flex-col justify-between"
           style={{ borderRadius: "40px 0 40px 40px" }}
         >
-          <div className="absolute top-[140px] right-[90px]">
+          {/* Top Icon */}
+          <div className="absolute top-[50px] right-[20px] sm:top-[140px] sm:right-[90px]">
             <img
               src={images[currentWordIndex]}
               alt="3D Icon"
-              className="w-24 h-24"
+              className="w-16 h-16 sm:w-24 sm:h-24"
             />
           </div>
-          <h1
-            className="text-21xl md:text-5xl font-bold leading-tight"
-            style={{ fontSize: "7rem" }}
-          >
-            LET’S BUILD
-            <br />
-            THE NEXT
-            <br />
-            <span>{words[currentWordIndex]}</span> THING
-          </h1>
-          <div className="bg-gray-200 h-0.5 mt-2"></div>
-          <div className="flex items-center justify-evenly">
-            <div className="flex items-center">
-              <h1 className="text-[4rem] font-semibold mt-4">10Y </h1>
-              <h2 className="mt-4 ml-4">
-                OF DESIGN-DRIVEN <br />
-                PRODUCT DEVELOPMENT
-              </h2>
+
+          {/* Main Content */}
+          <div className="flex-grow h-[80%] flex items-center">
+            <h1
+              className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-8xl font-bold leading-tight"
+              style={{ lineHeight: '1.1', width: '100%' }}
+            >
+              LET’S BUILD
+              <br />
+              THE NEXT
+              <br />
+              <span>{words[currentWordIndex]}</span> THING
+            </h1>
+          </div>
+
+          {/* Bottom Section */}
+          <div className="h-[20%] flex flex-col justify-between">
+            <div className="bg-gray-200 h-0.5"></div>
+            <div className="flex items-center justify-evenly mt-4 sm:mt-0">
+              <div className="flex items-center">
+                <h1 className="text-3xl sm:text-4xl font-semibold">10Y </h1>
+                <h2 className="ml-2 sm:ml-4">
+                  OF DESIGN-DRIVEN <br />
+                  PRODUCT DEVELOPMENT
+                </h2>
+              </div>
+              <button className="mt-4 sm:mt-0 bg-yellow-400 text-black px-2 py-1 sm:px-6 sm:py-2 rounded-full flex items-center justify-center space-x-1 sm:space-x-2 text-xs sm:text-base">
+                <span>⚡</span>
+                <span>LET’S TALK</span>
+              </button>
             </div>
-            <button className="mt-6 bg-yellow-400 text-black px-6 py-2 rounded-full flex items-center space-x-2">
-              <span>⚡</span>
-              <span>LET’S TALK</span>
-            </button>
           </div>
         </div>
 
