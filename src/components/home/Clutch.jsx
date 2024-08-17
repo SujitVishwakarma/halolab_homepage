@@ -4,7 +4,7 @@ const Clutch = () => {
   return (
     <div className='main-container flex flex-col lg:flex-row mt-8 min-h-64 space-y-6 lg:space-y-0'>
       {/* Left side container */}
-      <div className='w-full lg:w-3/10 flex justify-center lg:justify-start items-center'>
+      <div className='w-full lg:w-3/10 flex justify-center lg:justify-center items-center top-0'>
         <button className='border border-white rounded-lg p-2 flex items-center lg:ml-14'>
           <span className='text-lg lg:text-2xl'>Clutch | </span>
           <span className='text-sm lg:text-base ml-2'>70+ REVIEWS</span>
