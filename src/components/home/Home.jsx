@@ -8,6 +8,7 @@ import SliderCard from './SliderCard'
 import Benefits from './Benefits'
 import Contact from './Contact'
 import Footer from '../Footer'
+import Work from './Work'
 const Home = () => {
   return (
     <div>
@@ -17,6 +18,7 @@ const Home = () => {
       <BrandPage/>
       <Clutch/>
       <SliderCard/>
+      <Work/>
       <Benefits/>
       <Contact/>
       <Footer/>
