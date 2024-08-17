@@ -11,6 +11,7 @@ const testimonials = [
     rating: "5.0",
     review:
       "The client has learned to trust Halo Lab, thanks to their significant knowledge in UI/UX design. The vendor has provided valuable feedback by always being readily available for communication. Moreover, they have a satisfying project system.",
+    name: "Anonymous",
     position: "Co-Founder at Kinetik",
   },
   {
@@ -103,27 +104,29 @@ const SliderCard = () => {
           <div className="w-full md:w-2/3">
             <Slider ref={sliderRef} {...settings}>
               {testimonials.map((testimonial, index) => (
-                <div
-                  key={index}
-                  className="p-6 mx-2 flex flex-col justify-between gap-4"
-                  style={{ height: "320px" }}
-                >
-                  <div className="flex flex-col h-full ">
-                    <div className="text-xl font-bold mb-4">
-                      {testimonial.rating} ⭐⭐⭐⭐⭐
+                <div key={index} className="px-2"> {/* Added padding for gap */}
+                  <div
+                    className="p-6 flex flex-col justify-between gap-4 rounded-lg bg-[#3719ca] "
+                    style={{ height: "420px", borderRadius:"10px 50px 10px 10px" }} // Fixed height for each card
+                  >
+                    <div className="flex flex-col h-full">
+                      <div className="text-xl font-bold mb-4">
+                        {testimonial.rating} ⭐⭐⭐⭐⭐
+                      </div>
+                      <div className="bg-gray-300 h-0.5 "></div>
+                      <p className="flex-grow overflow-hidden text-ellipsis">
+                        {testimonial.review}
+                      </p>
                     </div>
-                    <p className="flex-grow overflow-hidden text-ellipsis">
-                      {testimonial.review}
-                    </p>
-                  </div>
-                  <div className="mt-6 flex items-center">
-                    <div className="w-12 h-12 bg-gray-500 rounded-full flex items-center justify-center mr-4">
-                      <FaUser className="text-white text-2xl" />
-                    </div>
-                    <div>
-                      <div className="font-bold">{testimonial.name || "Anonymous"}</div>
-                      <div className="text-sm text-gray-300">
-                        {testimonial.position}
+                    <div className="mt-1 flex items-center">
+                      <div className="w-12 h-12 bg-gray-500 rounded-full flex items-center justify-center mr-4">
+                        <FaUser className="text-white text-2xl" />
+                      </div>
+                      <div>
+                        <div className="font-bold">{testimonial.name || "Anonymous"}</div>
+                        <div className="text-sm text-gray-300">
+                          {testimonial.position}
+                        </div>
                       </div>
                     </div>
                   </div>
