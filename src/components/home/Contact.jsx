@@ -1,13 +1,49 @@
 import React from 'react';
 import { FaUser } from 'react-icons/fa';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
+const testimonials = [
+    {
+        text: "Their skills were awesome! They took what I said and made it better. The designs ended up being loved by internal stakeholders and customers alike.",
+        name: "Farah Allen",
+        title: "Founder & CEO at ____",
+    },
+    {
+        text: "They delivered excellent results, ensuring all requirements were met and deadlines were adhered to. The team was very communicative and professional.",
+        name: "John Doe",
+        title: "CTO at Example Inc.",
+    },
+    {
+        text: "Working with them was a pleasure. The project was delivered on time and within budget. Their creativity and expertise were top-notch.",
+        name: "Jane Smith",
+        title: "Product Manager at XYZ Corp.",
+    },
+    {
+        text: "I was impressed with the quality of their work. They exceeded our expectations and delivered a product that was both functional and aesthetically pleasing.",
+        name: "Michael Johnson",
+        title: "CEO at ABC Solutions",
+    },
+];
 
 const Contact = () => {
+    const settings = {
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 4000,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        dots: false,
+    };
+
     return (
-        <div className='container mx-auto px-6 py-8' id='contact'>
-            <div className='flex flex-col md:flex-row bg-gray-100 rounded-lg p-6 shadow-sm' style={{borderRadius: "10px 90px 10px 10px"}}>
+        <div className="container mx-auto px-6 py-8" id="contact">
+            <div className="flex flex-col md:flex-row bg-gray-100 rounded-lg p-6 shadow-sm">
                 {/* Left Side - Contact Form */}
-                <div className="flex-1 mb-8 md:mb-0 md:mr-6" style={{ flex: '7 1 0' }}>
-                    <div className="bg-gray-100 rounded-lg p-6 shadow-sm">
+                <div className="w-full md:w-7/10 mb-8 md:mb-0 md:mr-4">
+                    <div className="bg-gray-100 rounded-lg p-2 shadow-sm">
                         <h1 className="text-black font-bold text-4xl">Ready to discuss <br /> your project with us?</h1>
                         <div className="mt-4">
                             <label className="text-black" htmlFor="name">Full Name</label>
@@ -49,23 +85,31 @@ const Contact = () => {
                 </div>
 
                 {/* Right Side - Testimonial Card */}
-                <div className="flex-1" style={{ flex: '3 1 0' }}>
-                    <div className="bg-slate-200 p-6 shadow-sm testinomail-container" style={{borderRadius:"20px 60px 20px 20px"}}>
-                        <div className="p-6 text-black rounded-lg flex flex-col justify-between gap-4" style={{ height: "400px" }}>
-                            <div className="text-2xl font-bold mb-4">Our clients say</div>
-                            <div className='bg-white h-1'></div>
-                            <p className="flex-grow overflow-hidden text-ellipsis">
-                                Their skills were awesome! They took what I said and made it better. The designs ended up being loved by internal stakeholders and customers alike. The specialists maintained excellent project management skills throughout the entire process.
-                            </p>
-                            <div className="mt-4 flex items-center">
-                                <div className="w-12 h-12 bg-gray-500 rounded-full flex items-center justify-center mr-4">
-                                    <FaUser className="text-white text-2xl" />
-                                </div>
-                                <div>
-                                    <div className="font-bold">Farah Allen</div>
-                                    <div className="text-sm text-gray-300">Founder & CEO at ____</div>
-                                </div>
-                            </div>
+                <div className="md:w-80">
+                    <div className="bg-slate-200 p-2 shadow-sm testinomail-container" style={{ borderRadius: "20px 60px 20px 20px" }}>
+                        <div className="max-w-lg mx-auto ">
+                            <Slider {...settings}>
+                                {testimonials.map((testimonial, index) => (
+                                    <div key={index}>
+                                        <div className="p-4 text-black rounded-lg flex flex-col justify-between gap-4" style={{ height: "400px" }}>
+                                            <div className="text-2xl font-bold mb-4">Our clients say</div>
+                                            <div className="bg-white h-1"></div>
+                                            <p className="flex-grow overflow-hidden text-ellipsis">
+                                                {testimonial.text}
+                                            </p>
+                                            <div className="mt-2 flex items-center">
+                                                <div className="w-12 h-12 bg-gray-500 rounded-full flex items-center justify-center mr-4">
+                                                    <FaUser className="text-white text-2xl" />
+                                                </div>
+                                                <div>
+                                                    <div className="font-bold">{testimonial.name}</div>
+                                                    <div className="text-sm text-gray-600">{testimonial.title}</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </Slider>
                         </div>
                     </div>
                 </div>
