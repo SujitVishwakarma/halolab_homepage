@@ -3,6 +3,23 @@ import { FaUser } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { MdArrowOutward } from "react-icons/md";
 import serviceVideo from '../../assets/serviceVideo.mp4';
+import whiteBg from '../../assets/whiteBg.png';
+
+const bgImage = {
+  backgroundImage: `url(${whiteBg})`,
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+};
+
+// Media query to remove background position center for screens larger than 768px
+const mediaQueryStyle = `
+  @media (min-width: 768px) {
+    .service-container {
+      background-position: initial !important;
+    }
+  }
+`;
 
 const services = [
   {
@@ -30,15 +47,20 @@ const services = [
 const Service = () => {
   return (
     <div className="bg-gradient-to-br from-purple-700 to-blue-500 p-6 md:p-10 min-h-screen flex justify-center items-center">
-      <div className="bg-white rounded-lg p-6 md:p-10 shadow-xl max-w-5xl w-full" style={{ borderRadius: "0 78px 10px 20px" }}>
-        {/* upper container  */}
+      {/* Inject media query style */}
+      <style>{mediaQueryStyle}</style>
+      <div
+        className="service-container p-6 md:p-10 shadow-xl max-w-5xl w-auto"
+        style={bgImage}
+      >
+        {/* Upper container */}
         <div className="flex flex-col md:flex-row items-start justify-between mb-8">
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900">OUR <br /> SERVICES</h2>
           {/* Top right side or video container */}
-          <div className="flex flex-col md:flex-row items-start space-x-0 md:space-x-4 w-full md:w-auto mt-4 md:mt-0">
+          <div className="flex flex-col md:flex-row items-start space-x-0 md:space-x-4 w-full md:w-auto mt-4 md:mt-10">
             <div className="w-full h-52 md:h-16 md:w-16 bg-white rounded-md md:rounded-full flex items-center justify-center border border-gray-400">
               <video
-                className="w-full h-full  object-cover rounded-md md:rounded-full"
+                className="w-full h-full object-cover rounded-md md:rounded-full"
                 autoPlay
                 loop
                 muted
@@ -80,7 +102,7 @@ const Service = () => {
           ))}
         </div>
 
-        {/* showing icon and title in mobile screen  */}
+        {/* Showing icon and title in mobile screens */}
         <div className="sm:hidden flex flex-col items-center space-y-4 w-full">
           {services.map((service, index) => (
             <div key={index} className="bg-gray-300 p-4 rounded-xl shadow-lg flex items-center space-x-4 w-full">
