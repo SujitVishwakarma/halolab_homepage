@@ -185,7 +185,7 @@ const Footer = () => {
                                     <h2 className="md:text-lg text-sm font-bold mb-4">{category.title}</h2>
                                     <div className="flex flex-wrap justify-between">
                                         {category.items.map((item, itemIndex) => (
-                                            <div key={itemIndex} className="w-full sm:w-1/2 lg:w-1/3 mb-4">
+                                            <div key={itemIndex} className="w-full sm:w-1/2 lg:w-1/3 mb-4 hover:underline hover:text-purple-600">
                                                 {item}
                                             </div>
                                         ))}
