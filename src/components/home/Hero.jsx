@@ -12,6 +12,12 @@ import video3 from '../../assets/home-story-2.mp4';
 import { AiOutlineThunderbolt } from "react-icons/ai";
 import haloLogo from '../../assets/halologo.png';
 import { BsThreeDots } from "react-icons/bs";
+import blueBg from '../../assets/blueBg.png';
+const bgImage = {
+  backgroundImage: `url(${blueBg})`,
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "cover",
+};
 const Hero = () => {
   const words = ["TECH", "SMART", "COOL", "BUZZ", "BIG"];
   const images = [big, cool, smart, tech, big];
@@ -72,8 +78,8 @@ const Hero = () => {
       <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-[65%_35%] gap-8 items-center">
         {/* Left Side */}
         <div
-          className="bg-blue-600 p-4 sm:p-8 rounded-lg relative h-auto md:h-[600px] lg:h-[550px] xl:h-[600px] flex flex-col justify-between"
-          style={{ borderRadius: "40px 0 40px 40px" }}
+          className=" p-4 sm:p-8 rounded-lg relative h-auto md:h-[600px] lg:h-[550px] xl:h-[600px] flex flex-col justify-between"
+          style={bgImage}
         >
           {/* Top Icon */}
           <div className="absolute top-[50px] right-[20px] sm:top-[140px] sm:right-[90px]">
@@ -99,7 +105,7 @@ const Hero = () => {
           </div>
 
           {/* Bottom Section */}
-          <div className="h-[20%] flex flex-col justify-between">
+          <div className="h-[18%] flex flex-col justify-between">
             <div className="bg-gray-200 h-0.5"></div>
             <div className="flex flex-col sm:flex-row items-center justify-between mt-4 sm:mt-0 space-y-4 sm:space-y-0">
               {/* Text Section (h1 and h2 in a row) */}
